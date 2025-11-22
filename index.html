@@ -408,13 +408,25 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   loadMoreBtn.addEventListener("click", cargarReseñas);
 
   // ✅ REDIRECCIÓN DEL BOTÓN "COMPRAR AHORA"
-document.querySelector('.btn.btn-primary').addEventListener('click', function() {
-  window.location.href = 'https://addreesss.netlify.app/';
-});
+  document.querySelector('.btn.btn-primary').addEventListener('click', function() {
+  
+    // --- 🟩 ENVÍA EVENTO A TIKTOK SIN CAMBIAR NADA MÁS ---
+    if (typeof ttq !== "undefined") {
+      ttq.track('ClickButton', {
+        content_name: 'Reloj SIM GPS DW100',
+        value: 14.99,
+        currency: 'EUR'
+      });
+    }
+  
+    // --- REDIRECCIÓN ORIGINAL (NO TOCADA) ---
+    window.location.href = 'https://addreesss.netlify.app/';
+  });
 </script>
 
 </body>
 </html>
+
 
 
 
